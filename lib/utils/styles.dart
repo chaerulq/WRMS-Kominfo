@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const Color kColorPrimary = Color(0x00007bff);
-const Color kColorSecondary = Colors.white;
+const Color kColorPrimary = Color(0xffe8ebfd);
+const Color kColorSecondary = Color(0xff6777EF);
 const Color kColorIndigo = Color(0x006610f2);
-const Color kColorNavy = Color.fromARGB(255, 6, 24, 51);
-const Color kcategoryColor = Colors.black26;
+const Color kColorNavy = Color(0xffe8ebfd);
+const Color ktextColor = Color(0xff66676f);
+const Color ktextColor2 = Color(0xffA0A9EB);
+const Color kColorGrey1 = Color(0xffE4E4E4);
+const Color kColorGrey2 = Color(0xffF7F7F7);
+const Color kColorGrey3 = Color(0xffEBEBEB);
+const Color kColorGrey4 = Color(0xff737373);
 
 final textTheme = TextTheme(
   headline1: GoogleFonts.inter(
