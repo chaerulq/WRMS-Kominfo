@@ -10,6 +10,7 @@ const Color ktextColor2 = Color(0xffA0A9EB);
 const Color kColorGrey1 = Color(0xffE4E4E4);
 const Color kColorGrey2 = Color(0xffF7F7F7);
 const Color kColorGrey3 = Color(0xffEBEBEB);
+const Color kColorGrey5 = Color(0xff9A9A9A);
 const Color kColorGrey4 = Color(0xff737373);
 
 final textTheme = TextTheme(

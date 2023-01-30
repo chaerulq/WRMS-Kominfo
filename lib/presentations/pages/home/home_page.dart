@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wrms_kominfo/presentations/widgets/proyekcard_widget.dart';
 
-import '../../utils/styles.dart';
+import '../../../utils/styles.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -43,13 +43,13 @@ class HomePage extends StatelessWidget {
                     children: const [
                       Icon(Icons.notifications_none_outlined),
                       SizedBox(width: 10),
-                      Icon(Icons.person_outlined),
+                      Icon(Icons.person_rounded),
                     ],
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 35),
+            SizedBox(height: size.height * 0.0431),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -172,7 +172,7 @@ class HomePage extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: size.height * 0.0246),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Container(
@@ -210,14 +210,14 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 15),
+            SizedBox(height: size.height * 0.0184),
             Container(
               height: size.height * 0.012,
               color: kColorGrey1,
             ),
-            const SizedBox(height: 15),
+            SizedBox(height: size.height * 0.0184),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: size.height * 0.0246),
               child: Column(
                 children: [
                   Row(
@@ -249,7 +249,7 @@ class HomePage extends StatelessWidget {
                       )
                     ],
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: size.height * 0.0184),
                   SizedBox(
                     height: size.height * 0.23,
                     child: ListView(
@@ -267,14 +267,14 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 15),
+            SizedBox(height: size.height * 0.0184),
             Container(
               height: size.height * 0.012,
               color: kColorGrey1,
             ),
-            const SizedBox(height: 15),
+            SizedBox(height: size.height * 0.0184),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: size.height * 0.0246),
               child: Column(
                 children: [
                   Row(
@@ -306,7 +306,7 @@ class HomePage extends StatelessWidget {
                       )
                     ],
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: size.height * 0.0184),
                   SizedBox(
                     height: size.height * 0.23,
                     child: ListView(
