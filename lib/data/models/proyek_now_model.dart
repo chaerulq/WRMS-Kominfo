@@ -65,6 +65,8 @@ class Pembangunan {
     required this.createdBy,
     this.publishedAt,
     this.thumbnail,
+    required this.alias,
+    required this.thumbnailUsulan,
     required this.timeElapsed,
     required this.progress,
   });
@@ -85,6 +87,8 @@ class Pembangunan {
   String createdBy;
   DateTime? publishedAt;
   dynamic thumbnail;
+  String alias;
+  String thumbnailUsulan;
   TimeElapsed timeElapsed;
   dynamic progress;
 
@@ -107,6 +111,8 @@ class Pembangunan {
             ? null
             : DateTime.parse(json["published_at"]),
         thumbnail: json["thumbnail"],
+        alias: json["alias"],
+        thumbnailUsulan: json["thumbnail_usulan"],
         timeElapsed: TimeElapsed.fromJson(json["timeElapsed"]),
         progress: json["progress"],
       );
@@ -130,6 +136,8 @@ class Pembangunan {
         "created_by": createdBy,
         "published_at": publishedAt?.toIso8601String(),
         "thumbnail": thumbnail,
+        "alias": alias,
+        "thumbnail_usulan": thumbnailUsulan,
         "timeElapsed": timeElapsed.toJson(),
         "progress": progress,
       };

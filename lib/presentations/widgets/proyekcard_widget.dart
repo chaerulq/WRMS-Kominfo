@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:wrms_kominfo/data/models/proyek_now_model.dart';
 import 'package:wrms_kominfo/utils/styles.dart';
 
 class CardProyek extends StatelessWidget {
   // final String image;
-  final String apkname;
-  final String instansiname;
+  final Pembangunan pembangunan;
+
   const CardProyek({
     super.key,
     // required this.image,
-    required this.apkname,
-    required this.instansiname,
+
+    required this.pembangunan,
   });
 
   @override
@@ -32,9 +33,10 @@ class CardProyek extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 7),
                 width: size.width * 0.31,
                 height: size.height * 0.13,
-                decoration: BoxDecoration(
-                  color: kColorGrey3,
-                  borderRadius: BorderRadius.circular(15),
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage('assets/images/noImageAvailable.png')),
                 ),
               ),
             ),
@@ -42,7 +44,8 @@ class CardProyek extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 12),
               child: Text(
-                apkname,
+                pembangunan.namaProjek,
+                maxLines: 1,
                 style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
@@ -52,7 +55,8 @@ class CardProyek extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 12),
               child: Text(
-                instansiname,
+                pembangunan.alias,
+                maxLines: 1,
                 style: const TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.w400,
@@ -64,18 +68,18 @@ class CardProyek extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Padding(
                     padding: EdgeInsets.only(left: 4),
                     child: Text(
-                      '54%',
+                      "${pembangunan.progress.toString()}%",
                       style:
                           TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                     ),
                   ),
                   Text(
-                    '2 Minggu lagi',
-                    style: TextStyle(fontSize: 9, fontWeight: FontWeight.w400),
+                    pembangunan.timeElapsed.time,
+                    style: TextStyle(fontSize: 5, fontWeight: FontWeight.w400),
                   ),
                 ],
               ),

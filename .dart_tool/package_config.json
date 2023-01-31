@@ -278,6 +278,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "simple_animations",
+      "rootUri": "file:///C:/Android/flutter/.pub-cache/hosted/pub.dartlang.org/simple_animations-4.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///C:/Android/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -356,7 +362,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-01-30T06:49:12.848674Z",
+  "generated": "2023-01-30T07:39:12.332327Z",
   "generator": "pub",
   "generatorVersion": "2.18.5"
 }
