@@ -15,7 +15,7 @@ class HomePageController extends GetxController {
   void onInit() {
     super.onInit();
     checkLogin();
-    checkProyek();
+    // checkProyek();
   }
 
   Future<ProyekNowModel> checkLogin() async {

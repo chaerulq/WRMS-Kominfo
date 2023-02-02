@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => ProyekNow(homeController: HomePageController()),
+          create: (_) =>
+              ProyekNowProvider(homeController: HomePageController()),
         ),
         ChangeNotifierProvider(
           create: (_) => ProyekNext(homeController: HomePageController()),
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         home: LoginPage(),
+        routes: {
+          HomePage.routeName: (context) => const HomePage(),
+        },
       ),
     );
   }

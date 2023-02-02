@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import '../../presentations/pages/home/controller/home_controller.dart';
 import '../../utils/state_resutl.dart';
 import '../models/proyek_next_model.dart';
-import '../models/proyek_now_model.dart';
 
 class ProyekNext extends ChangeNotifier {
   final HomePageController homeController;

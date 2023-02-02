@@ -5,10 +5,10 @@ import '../../presentations/pages/home/controller/home_controller.dart';
 import '../../utils/state_resutl.dart';
 import '../models/proyek_now_model.dart';
 
-class ProyekNow extends ChangeNotifier {
+class ProyekNowProvider extends ChangeNotifier {
   final HomePageController homeController;
 
-  ProyekNow({required this.homeController}) {
+  ProyekNowProvider({required this.homeController}) {
     _fetchProyekNow();
   }
 
