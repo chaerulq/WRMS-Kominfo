@@ -5,12 +5,10 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class ApiHandler {
   static final client = http.Client();
   static final storage = FlutterSecureStorage();
-  static Future<String> post(
-      String username, String password, String endPoint) async {
-    var response = await client.post(buildUrl(endPoint), body: {
-      "username": username,
-      "password": password,
-    });
+  static Future<String> post(var body, String endPoint) async {
+    var response =
+        await client.post(buildUrl(endPoint), body: json.decode(body));
+    // print(response.body);
     return response.body;
     // var data = json.decode(response.body);
     // print(data['token']);

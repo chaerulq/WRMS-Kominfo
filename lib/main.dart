@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:wrms_kominfo/data/provider/proyek_next_provider%20.dart';
 import 'package:wrms_kominfo/data/provider/proyek_now_provider.dart';
 import 'package:wrms_kominfo/presentations/pages/home/controller/home_controller.dart';
 import 'package:wrms_kominfo/presentations/pages/home/home_page.dart';
@@ -16,11 +17,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ProyekNow(homeController: HomePageController()),
-      child: const GetMaterialApp(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => ProyekNow(homeController: HomePageController()),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ProyekNext(homeController: HomePageController()),
+        ),
+      ],
+      child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: LoginPage(),
       ),
     );
   }

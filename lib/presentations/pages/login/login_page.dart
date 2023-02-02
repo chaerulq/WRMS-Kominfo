@@ -6,9 +6,7 @@ import 'controller/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
-
-  TextEditingController usernameLoginController = TextEditingController();
-  TextEditingController passwordLoginController = TextEditingController();
+  var loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +117,7 @@ class LoginPage extends StatelessWidget {
                                   border: Border(
                                       bottom: BorderSide(color: Colors.grey))),
                               child: TextField(
-                                controller: usernameLoginController,
+                                controller: loginController.usernameController,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: "Username",
@@ -130,7 +128,7 @@ class LoginPage extends StatelessWidget {
                             Container(
                               padding: const EdgeInsets.all(8.0),
                               child: TextField(
-                                controller: passwordLoginController,
+                                controller: loginController.passwordController,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: "Password",
@@ -162,10 +160,7 @@ class LoginPage extends StatelessWidget {
                     // ),
                     ElevatedButton(
                       onPressed: () {
-                        LoginController().login(
-                          usernameLoginController.text,
-                          passwordLoginController.text,
-                        );
+                        loginController.login();
                       },
                       child: const Text(
                         "Login",

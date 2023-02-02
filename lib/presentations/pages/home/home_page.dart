@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:wrms_kominfo/presentations/widgets/proyekcard_widget.dart';
 
+import '../../../data/models/proyek_next_model.dart';
 import '../../../data/models/proyek_now_model.dart';
 import '../../../utils/styles.dart';
 import '../../widgets/aplication_error_widget.dart';
@@ -17,19 +19,22 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var homeController = Get.put(HomePageController());
   late Future<ProyekNowModel> _proyeknow;
+  late Future<ProyekNextModel> _proyeknext;
 
   @override
   void initState() {
     super.initState();
     _proyeknow = homeController.checkLogin();
+    _proyeknext = homeController.checkProyek();
   }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    // final data = Provider.of<ProyekNextModel>(context, listen: false);
     return FutureBuilder(
-      future: _proyeknow,
-      builder: (context, AsyncSnapshot<ProyekNowModel> snapshot) {
+      future: _proyeknext,
+      builder: (context, AsyncSnapshot<ProyekNextModel> snapshot) {
         var state = snapshot.connectionState;
         if (state != ConnectionState.done) {
           return Scaffold(
@@ -62,13 +67,16 @@ class _HomePageState extends State<HomePage> {
                                   fontSize: 14,
                                 ),
                               ),
-                              Text(
-                                snapshot.data!.status.toString(),
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              ),
+                              Consumer<ProyekNextModel>(
+                                  builder: (context, value, snapshot) {
+                                return Text(
+                                  value.status.toString(),
+                                  style: TextStyle(
+                                    color: Colors.black54,
+                                    fontSize: 14,
+                                  ),
+                                );
+                              }),
                             ],
                           ),
                           Row(

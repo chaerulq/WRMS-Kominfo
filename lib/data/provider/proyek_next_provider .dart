@@ -3,38 +3,39 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import '../../presentations/pages/home/controller/home_controller.dart';
 import '../../utils/state_resutl.dart';
+import '../models/proyek_next_model.dart';
 import '../models/proyek_now_model.dart';
 
-class ProyekNow extends ChangeNotifier {
+class ProyekNext extends ChangeNotifier {
   final HomePageController homeController;
 
-  ProyekNow({required this.homeController}) {
-    _fetchProyekNow();
+  ProyekNext({required this.homeController}) {
+    _fetchProyekNext();
   }
 
-  late ProyekNowModel _ProyekNowModel;
+  late ProyekNextModel _ProyekNextModel;
   late StateResult _state;
   String _message = '';
 
   String get message => _message;
 
-  ProyekNowModel get result => _ProyekNowModel;
+  ProyekNextModel get result => _ProyekNextModel;
 
   StateResult get state => _state;
 
-  Future<dynamic> _fetchProyekNow() async {
+  Future<dynamic> _fetchProyekNext() async {
     try {
       _state = StateResult.loading;
       notifyListeners();
-      final proyeknow = await homeController.checkLogin();
-      if (proyeknow.data.pembangunan.isEmpty) {
+      final proyeknext = await homeController.checkProyek();
+      if (proyeknext.data.pembangunan.isEmpty) {
         _state = StateResult.noData;
         notifyListeners();
         return _message = 'Empty Data';
       } else {
         _state = StateResult.hasData;
         notifyListeners();
-        return _ProyekNowModel = proyeknow;
+        return _ProyekNextModel = proyeknext;
       }
     } on SocketException {
       _state = StateResult.noConnection;
