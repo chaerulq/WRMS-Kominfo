@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: LoginPage(),
+        home: HomeReqres(),
         routes: {HomeReqres.routeName: (context) => const HomeReqres()},
       ),
     );

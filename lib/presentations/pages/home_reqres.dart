@@ -16,8 +16,52 @@ class HomeReqres extends StatelessWidget {
           if (state.state == StateResult.loading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state.state == StateResult.hasData) {
-            return Text('');
-          } else {}
+            return Text(
+              state.result.data.email,
+              style: TextStyle(fontSize: 15),
+            );
+          } else if (state.state == StateResult.noData) {
+            return Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  const SizedBox(height: 8),
+                  Text(state.message),
+                  const SizedBox(height: 8),
+                ],
+              ),
+            );
+          } else if (state.state == StateResult.noConnection) {
+            return Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  const SizedBox(height: 8),
+                  Text(state.message),
+                  const SizedBox(height: 8),
+                ],
+              ),
+            );
+          } else if (state.state == StateResult.error) {
+            return Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  const SizedBox(height: 8),
+                  Text(state.message),
+                  const SizedBox(height: 8),
+                ],
+              ),
+            );
+          } else {
+            return const Center(child: Text(''));
+          }
         },
       ),
     );
