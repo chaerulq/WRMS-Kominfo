@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
+import 'package:wrms_kominfo/data/models/user_model.dart';
+import 'package:wrms_kominfo/data/provider/db_provider.dart';
 
 import '../../../../data/api/api_handle.dart';
 import '../../../../data/models/proyek_now_model.dart';
@@ -16,7 +18,7 @@ class HomePageController extends GetxController {
   }
 
   Future<ProyekNowModel> checkLogin() async {
-    var scopedToken = await ApiHandler.getToken();
+    var scopedToken = await DatabaseProvider().getToken();
     token?.value = scopedToken!;
     loggedIn.value = true;
     var response =

@@ -14,13 +14,13 @@ class LoginController extends GetxController {
     // print(response);
     var data = json.decode(response);
 
-    if (data['token'] == null) {
-      print("login failed");
-    } else {
-      // print(data['token']);
-      await ApiHandler.storeToken(data['token']);
-      Get.offAll(const HomePage());
-      // print(data['token']);
-    }
+    // if (data['token'] == null) {
+    //   print("login failed");
+    // } else {
+    //   // print(data['token']);
+    //   await ApiHandler.storeToken(data['token']);
+    //   Get.offAll(const HomePage());
+    //   // print(data['token']);
+    // }
   }
 }

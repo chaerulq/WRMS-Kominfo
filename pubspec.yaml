@@ -43,6 +43,11 @@ dependencies:
   get: ^4.6.5
   flutter_secure_storage: ^7.0.1
   simple_animations: ^4.2.0
+  shared_preferences: ^2.0.17
+  percent_indicator: ^4.2.2
+  shimmer: ^2.0.0
+  google_nav_bar: ^5.0.6
+  fluttericon: ^2.0.0
   
 
 dev_dependencies:
@@ -88,10 +93,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: CustomIcon
+      fonts:
+        - asset: assets/icon/fonts/CustomIcon.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
