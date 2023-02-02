@@ -1,41 +1,40 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
-import '../../presentations/pages/home/controller/home_controller.dart';
-import '../../utils/state_resutl.dart';
-import '../models/proyek_next_model.dart';
-import '../models/proyek_now_model.dart';
+import 'package:flutter/foundation.dart';
+import 'package:wrms_kominfo/data/api/api_handle.dart';
+import 'package:wrms_kominfo/data/models/user_reqres_model.dart';
+import 'package:wrms_kominfo/utils/state_resutl.dart';
 
-class ProyekNext extends ChangeNotifier {
-  final HomePageController homeController;
+class UserReqresProvider extends ChangeNotifier {
+  final ApiHandler apiHandler;
 
-  ProyekNext({required this.homeController}) {
-    _fetchProyekNext();
+  UserReqresProvider({required this.apiHandler}) {
+    _fetchAllUser();
   }
 
-  late ProyekNextModel _ProyekNextModel;
+  late UserReqresModel _userReqresModel;
   late StateResult _state;
   String _message = '';
 
   String get message => _message;
 
-  ProyekNextModel get result => _ProyekNextModel;
+  UserReqresModel get result => _userReqresModel;
 
   StateResult get state => _state;
 
-  Future<dynamic> _fetchProyekNext() async {
+  Future<dynamic> _fetchAllUser() async {
     try {
       _state = StateResult.loading;
       notifyListeners();
-      final proyeknext = await homeController.checkProyek();
-      if (proyeknext.data.pembangunan.isEmpty) {
+      final userReqres = await apiHandler.userReqres();
+      if (userReqres.data.avatar.isEmpty) {
         _state = StateResult.noData;
         notifyListeners();
         return _message = 'Empty Data';
       } else {
         _state = StateResult.hasData;
         notifyListeners();
-        return _ProyekNextModel = proyeknext;
+        return _userReqresModel = userReqres;
       }
     } on SocketException {
       _state = StateResult.noConnection;

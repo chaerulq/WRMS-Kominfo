@@ -12,13 +12,13 @@ class ProyekNow extends ChangeNotifier {
     _fetchProyekNow();
   }
 
-  late ProyekNowModel _ProyekNowModel;
+  late Data _ProyekNowModel;
   late StateResult _state;
   String _message = '';
 
   String get message => _message;
 
-  ProyekNowModel get result => _ProyekNowModel;
+  Data get result => _ProyekNowModel;
 
   StateResult get state => _state;
 
@@ -27,7 +27,7 @@ class ProyekNow extends ChangeNotifier {
       _state = StateResult.loading;
       notifyListeners();
       final proyeknow = await homeController.checkLogin();
-      if (proyeknow.data.pembangunan.isEmpty) {
+      if (proyeknow.pembangunan.isEmpty && proyeknow.pengembangan.isEmpty) {
         _state = StateResult.noData;
         notifyListeners();
         return _message = 'Empty Data';

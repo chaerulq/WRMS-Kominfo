@@ -1,15 +1,16 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:wrms_kominfo/data/models/user_reqres_model.dart';
 
 class ApiHandler {
   static final client = http.Client();
   static final storage = FlutterSecureStorage();
-  static Future<String> post(var body, String endPoint) async {
-    var response =
-        await client.post(buildUrl(endPoint), body: json.decode(body));
+  Future<UserReqresModel> userReqres() async {
+    var response = await client.get(Uri.parse('https://reqres.in/api/users/2'));
     // print(response.body);
-    return response.body;
+    return UserReqresModel.fromJson(json.decode(response.body));
+    ;
     // var data = json.decode(response.body);
     // print(data['token']);
     // print(response.body);
@@ -25,7 +26,7 @@ class ApiHandler {
   }
 
   static Uri buildUrl(String endPoint) {
-    String host = "http://10.98.33.36/api/v1/";
+    String host = "https://reqres.in/api/users/2";
     final apiPath = host + endPoint;
     return Uri.parse(apiPath);
   }
