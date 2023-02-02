@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               Text(
                                 'Hello,',
                                 style: TextStyle(
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               Text(
-                                'Chaerul',
+                                snapshot.data!.status.toString(),
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,

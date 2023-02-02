@@ -1,12 +1,13 @@
 import 'dart:convert';
 import 'package:get/get.dart';
+import 'package:wrms_kominfo/data/models/user_model.dart';
 import '../../../../data/api/api_handle.dart';
 import '../../home/home_page.dart';
 
 class LoginController extends GetxController {
   // TextEditingController usernameLoginController = TextEditingController();
   // TextEditingController passwordLoginController = TextEditingController();
-  void login(String username, String password) async {
+  Future<UserModel> login(String username, String password) async {
     // LoginModel loginModel = LoginModel(
 
     // );
@@ -20,7 +21,11 @@ class LoginController extends GetxController {
       // print(data['token']);
       await ApiHandler.storeToken(data['token']);
       Get.offAll(const HomePage());
+
       // print(data['token']);
     }
+    return UserModel.fromJson(
+      json.decode(response),
+    );
   }
 }
